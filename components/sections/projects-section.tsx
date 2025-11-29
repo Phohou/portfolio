@@ -1,0 +1,120 @@
+"use client";
+
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Github, ExternalLink, Code2 } from "lucide-react";
+import Link from "next/link";
+import { motion } from "framer-motion";
+
+const projects = [
+  {
+    title: "Agentic LLM Research",
+    description: "Research project exploring multi-agent AI systems and their development patterns. Analysis of large-scale AI system architectures and implementation strategies.",
+    type: "Research",
+    technologies: ["Python", "AI/ML", "Multi-Agent Systems"],
+    github: "https://github.com/Phohou/agentic-llm-research",
+    stars: 2,
+  },
+  {
+    title: "RPG Project",
+    description: "School project implementing a role-playing game with object-oriented design principles. Features character progression, inventory management, and turn-based combat.",
+    type: "Game",
+    technologies: ["Java", "OOP", "Game Development"],
+    github: "https://github.com/Phohou/RPG_Project",
+  },
+  {
+    title: "Final Project Java",
+    description: "Comprehensive Java game demonstrating advanced programming concepts including GUI design, event handling, and game logic implementation.",
+    type: "Game",
+    technologies: ["Java", "Swing", "Game Logic"],
+    github: "https://github.com/Phohou/Final-Project-Java",
+  },
+  {
+    title: "AVL Tree Implementation",
+    description: "Data structures class project implementing self-balancing AVL trees with insertion, deletion, and rotation operations for optimal search performance.",
+    type: "Algorithm",
+    technologies: ["Java", "Data Structures", "Algorithms"],
+    github: "https://github.com/Phohou/AVLTree",
+  },
+  {
+    title: "Hackathon Project",
+    description: "Web application developed during a hackathon event, showcasing rapid prototyping and full-stack development skills.",
+    type: "Web App",
+    technologies: ["HTML", "CSS", "JavaScript"],
+    github: "https://github.com/Phohou/Hackathon-Project",
+  },
+  {
+    title: "Pokedex",
+    description: "Interactive Pokémon database application with search functionality and detailed information display using external APIs.",
+    type: "Web App",
+    technologies: ["Python", "API Integration", "Web Development"],
+    github: "https://github.com/Phohou/Pokedex",
+  },
+];
+
+export function ProjectsSection() {
+  return (
+    <section id="projects" className="py-20 px-4">
+      <div className="container mx-auto max-w-6xl">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-4xl font-bold mb-4">Projects</h2>
+          <p className="text-muted-foreground text-lg">
+            A showcase of my work in software development and research
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projects.map((project, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+            >
+              <Card className="h-full flex flex-col hover:shadow-lg hover:border-primary transition-all">
+                <CardHeader>
+                  <div className="flex items-start justify-between gap-2 mb-2">
+                    <Code2 className="h-8 w-8 text-primary flex-shrink-0" />
+                    <Badge variant="secondary">{project.type}</Badge>
+                  </div>
+                  <CardTitle className="text-xl">{project.title}</CardTitle>
+                  <CardDescription>{project.description}</CardDescription>
+                </CardHeader>
+                <CardContent className="flex-1 flex flex-col justify-between">
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.technologies.map((tech, i) => (
+                      <Badge key={i} variant="outline">
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Link href={project.github} target="_blank" rel="noopener noreferrer">
+                      <Button size="sm" variant="outline">
+                        <Github className="h-4 w-4 mr-2" />
+                        GitHub
+                      </Button>
+                    </Link>
+                    {project.stars && (
+                      <div className="text-sm text-muted-foreground flex items-center gap-1">
+                        ⭐ {project.stars}
+                      </div>
+                    )}
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
