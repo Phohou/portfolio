@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail, FileText } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 export function HeroSection() {
@@ -22,11 +23,16 @@ export function HeroSection() {
             transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
             className="mb-8"
           >
-            <img 
-              src="/profile_picture.jpg" 
-              alt="Daniel Liu" 
-              className="w-32 h-32 mx-auto rounded-full object-cover border-4 border-primary/20"
-            />
+            <div className="relative w-32 h-32 mx-auto">
+              <Image 
+                src="/profile_picture.jpg" 
+                alt="Daniel Liu" 
+                width={128}
+                height={128}
+                className="rounded-full object-cover border-4 border-primary/20"
+                priority
+              />
+            </div>
           </motion.div>
 
           {/* Name and Title */}
@@ -92,7 +98,7 @@ export function HeroSection() {
               <Github className="h-6 w-6" />
             </Link>
             <Link
-              href="https://linkedin.com/in/daniel-liu"
+              href="https://www.linkedin.com/in/danielliu2005/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors p-2 hover:bg-accent rounded-full"
@@ -101,7 +107,7 @@ export function HeroSection() {
               <Linkedin className="h-6 w-6" />
             </Link>
             <Link
-              href="mailto:daniel.liu@example.com"
+              href="mailto:danliu031505@gmail.com"
               className="text-muted-foreground hover:text-primary transition-colors p-2 hover:bg-accent rounded-full"
               aria-label="Email"
             >
