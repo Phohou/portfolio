@@ -25,7 +25,7 @@ export function HeroSection() {
           >
             <div className="relative w-32 h-32 mx-auto">
               <Image 
-                src="/profile_picture.jpg" 
+                src="/portfolio/profile_picture.jpg" 
                 alt="Daniel Liu" 
                 width={128}
                 height={128}
