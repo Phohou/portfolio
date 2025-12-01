@@ -18,9 +18,9 @@ const projects = [
   },
   {
     title: "Flourish",
-    description: "AI-powered mental health companion app developed for SASE 2025 Hackathon. Provides personalized wellness tracking, mood analysis, and supportive resources.",
+    description: "Social gardening app developed for SASE 2025 Hackathon. Track your plants with photo recognition, manage your garden, connect with fellow plant enthusiasts, and earn achievements as you grow.",
     type: "Hackathon, Mobile App",
-    technologies: ["Flutter", "Firebase", "AI/ML", "Mobile Development"],
+    technologies: ["Flutter", "Dart", "Firebase", "Mobile Development"],
     github: "https://github.com/ahmxdhijazi/WeCooked-SASE2025",
   },
   {
