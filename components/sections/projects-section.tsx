@@ -9,6 +9,28 @@ import { motion } from "framer-motion";
 
 const projects = [
   {
+    title: "GuessTify",
+    description: "Interactive Spotify-based music guessing game where players identify songs from audio clips. Built with modern web technologies and integrated with Spotify API.",
+    type: "Web App",
+    technologies: [ "Next.js", "Spotify API", "TypeScript"],
+    github: "https://github.com/Phohou/spotify_guessing_game",
+    demo: "https://guesstify.vercel.app/",
+  },
+  {
+    title: "Flourish",
+    description: "AI-powered mental health companion app developed for SASE 2025 Hackathon. Provides personalized wellness tracking, mood analysis, and supportive resources.",
+    type: "Hackathon, Mobile App",
+    technologies: ["Flutter", "Firebase", "AI/ML", "Mobile Development"],
+    github: "https://github.com/ahmxdhijazi/WeCooked-SASE2025",
+  },
+  {
+    title: "NestCents",
+    description: "Financial management application developed at WICS Hackathon. Helps users track expenses, manage budgets, and achieve financial goals through intuitive interface.",
+    type: "Hackathon, Web App",
+    technologies: ["Next.js", "VapiAI", "Finance"],
+    github: "https://github.com/Phohou/WICShackathon",
+  },
+  {
     title: "Agentic LLM Research",
     description: "Research project exploring multi-agent AI systems and their development patterns. Analysis of large-scale AI system architectures and implementation strategies.",
     type: "Research",
@@ -17,37 +39,16 @@ const projects = [
     stars: 2,
   },
   {
-    title: "RPG Project",
-    description: "School project implementing a role-playing game with object-oriented design principles. Features character progression, inventory management, and turn-based combat.",
-    type: "Game",
-    technologies: ["Java", "OOP", "Game Development"],
-    github: "https://github.com/Phohou/RPG_Project",
-  },
-  {
-    title: "Final Project Java",
-    description: "Comprehensive Java game demonstrating advanced programming concepts including GUI design, event handling, and game logic implementation.",
-    type: "Game",
-    technologies: ["Java", "Swing", "Game Logic"],
-    github: "https://github.com/Phohou/Final-Project-Java",
-  },
-  {
-    title: "AVL Tree Implementation",
-    description: "Data structures class project implementing self-balancing AVL trees with insertion, deletion, and rotation operations for optimal search performance.",
-    type: "Algorithm",
-    technologies: ["Java", "Data Structures", "Algorithms"],
-    github: "https://github.com/Phohou/AVLTree",
-  },
-  {
     title: "Hackathon Project",
     description: "Web application developed during a hackathon event, showcasing rapid prototyping and full-stack development skills.",
-    type: "Web App",
+    type: "Hackathon, Web App",
     technologies: ["HTML", "CSS", "JavaScript"],
     github: "https://github.com/Phohou/Hackathon-Project",
   },
   {
     title: "Pokedex",
     description: "Interactive Pokémon database application with search functionality and detailed information display using external APIs.",
-    type: "Web App",
+    type: "Python Project",
     technologies: ["Python", "API Integration", "Web Development"],
     github: "https://github.com/Phohou/Pokedex",
   },
@@ -96,7 +97,15 @@ export function ProjectsSection() {
                       </Badge>
                     ))}
                   </div>
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    {project.demo && (
+                      <Link href={project.demo} target="_blank" rel="noopener noreferrer">
+                        <Button size="sm">
+                          <ExternalLink className="h-4 w-4 mr-2" />
+                          Live Demo
+                        </Button>
+                      </Link>
+                    )}
                     <Link href={project.github} target="_blank" rel="noopener noreferrer">
                       <Button size="sm" variant="outline">
                         <Github className="h-4 w-4 mr-2" />
